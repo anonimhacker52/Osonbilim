@@ -1,0 +1,109 @@
+{
+  "title": "3-dars",
+  "words": [
+    {
+      "uz": "sovuq",
+      "en": "cold",
+      "examples": [
+        {"uz": "Sovuq suv.", "en": "Cold water."},
+        {"uz": "Men sovuq suv ichaman.", "en": "I drink cold water."},
+        {"uz": "Sovuq kun.", "en": "A cold day."}
+      ]
+    },
+    {
+      "uz": "kitob",
+      "en": "book",
+      "examples": [
+        {"uz": "Sening kitobing.", "en": "Your book."},
+        {"uz": "Bu mening kitobim.", "en": "This is my book."},
+        {"uz": "Yaxshi kitob.", "en": "A good book."}
+      ]
+    },
+    {
+      "uz": "a (artikl)",
+      "en": "a",
+      "examples": [
+        {"uz": "Bir kitob.", "en": "A book."},
+        {"uz": "Menga bir kitob kerak.", "en": "I need a book."},
+        {"uz": "Bir yaxshi dost.", "en": "A good friend."}
+      ]
+    },
+    {
+      "uz": "siz",
+      "en": "you",
+      "examples": [
+        {"uz": "Sen biroz non yegin.", "en": "You eat some bread."},
+        {"uz": "Senga do'st kerak.", "en": "You need a friend."},
+        {"uz": "Menga sen kerak, sen.", "en": "I need you."}
+      ]
+    },
+    {
+      "uz": "kitoblar",
+      "en": "books",
+      "examples": [
+        {"uz": "Ba'zi kitoblar.", "en": "Some books."},
+        {"uz": "Senga kitoblar kerak.", "en": "You need books."},
+        {"uz": "Yaxshi kitoblar.", "en": "Good books."}
+      ]
+    },
+    {
+      "uz": "yaxshi",
+      "en": "good",
+      "examples": [
+        {"uz": "Yaxshi kitob.", "en": "A good book."},
+        {"uz": "Yaxshi ota.", "en": "A good dad."},
+        {"uz": "Yaxshi suv.", "en": "Good water."}
+      ]
+    },
+    {
+      "uz": "bor",
+      "en": "have",
+      "examples": [
+        {"uz": "Menda bor.", "en": "I have."},
+        {"uz": "Sendа bor.", "en": "You have."},
+        {"uz": "Sendа biroz yaxshi kitoblar bor.", "en": "You have some good books."}
+      ]
+    },
+    {
+      "uz": "ko'p",
+      "en": "many",
+      "examples": [
+        {"uz": "Ko'p kitoblar.", "en": "Many books."},
+        {"uz": "Ko'p yaxshi kitoblar.", "en": "Many good books."},
+        {"uz": "Mening do'stlarim ko'p.", "en": "I have many friends."}
+      ]
+    },
+    {
+      "uz": "o'qimoq",
+      "en": "read",
+      "examples": [
+        {"uz": "Men o'qiyman.", "en": "I read."},
+        {"uz": "Sen o'qiysan.", "en": "You read."},
+        {"uz": "Sen ko'p kitoblar o'qiysan.", "en": "You read many books."}
+      ]
+    },
+    {
+      "uz": "men (I am)",
+      "en": "I am",
+      "examples": [
+        {"uz": "Men Davidman.", "en": "I am David."},
+        {"uz": "Men otaman.", "en": "I am a dad."},
+        {"uz": "Men sovuq qotdim.", "en": "I am cold."}
+      ]
+    },
+    {
+      "uz": "u (narsa)",
+      "en": "it",
+      "examples": [
+        {"uz": "Menga u kerak.", "en": "I need it."},
+        {"uz": "Menda kitob bor va men uni o'qiyman.", "en": "I have a book and I read it."},
+        {"uz": "Bu yaxshi, men uni yaxshi ko'raman.", "en": "It is good, I like it."}
+      ]
+    }
+  ],
+  "story": {
+    "title": "Kichik hikoya",
+    "text": "Hello, I am your friend. I have a good book. You can read many books. I need some hot water, please. I want to eat bread and I drink water. Thank you. Goodbye.",
+    "optional": true
+  }
+}
