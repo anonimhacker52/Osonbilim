@@ -1,0 +1,100 @@
+{
+  "title": "5-dars",
+  "words": [
+    {
+      "uz": "the (aniq artikal)",
+      "en": "the",
+      "examples": [
+        {"uz": "Kitob.", "en": "The book."},
+        {"uz": "Menda qalam bor, qalam qizil.", "en": "I have a pen. The pen is red."},
+        {"uz": "Kitob sumkaning ichida.", "en": "The book is in the bag."}
+      ]
+    },
+    {
+      "uz": "so'z",
+      "en": "word",
+      "examples": [
+        {"uz": "Mening so'zim.", "en": "My word."},
+        {"uz": "Men bu so'zni yozaman.", "en": "I write this word."},
+        {"uz": "Men har kuni ko'p yaxshi so'zlar yozaman.", "en": "I write many good words every day."}
+      ]
+    },
+    {
+      "uz": "aytmoq",
+      "en": "say",
+      "examples": [
+        {"uz": "Iltimos, bu so'zni ayting.", "en": "Please say this word."},
+        {"uz": "Men rahmat aytaman.", "en": "I say thank you."},
+        {"uz": "Men har kuni rahmat aytaman.", "en": "I say thank you every day."}
+      ]
+    },
+    {
+      "uz": "qizil",
+      "en": "red",
+      "examples": [
+        {"uz": "Qizil qalam.", "en": "A red pen."},
+        {"uz": "Qizil suvni ich.", "en": "Drink the red water."},
+        {"uz": "Ularga qizil sumka kerak.", "en": "They need a red bag."}
+      ]
+    },
+    {
+      "uz": "lekin",
+      "en": "but",
+      "examples": [
+        {"uz": "Bu katta sumka, lekin u qizil.", "en": "It is a big bag, but it is red."},
+        {"uz": "Men salom deyman, lekin sen hayr deysan.", "en": "I say hello, but you say goodbye."},
+        {"uz": "Menda suv bor, lekin u issiq.", "en": "I have water, but it is hot."}
+      ]
+    },
+    {
+      "uz": "bermoq",
+      "en": "give",
+      "examples": [
+        {"uz": "Ular berishadi.", "en": "They give."},
+        {"uz": "Ular har kuni kitoblar berishadi.", "en": "They give books every day."},
+        {"uz": "Men senga qizil qalamni beraman.", "en": "I give you the red pen."}
+      ]
+    },
+    {
+      "uz": "sanmi? (savol)",
+      "en": "do you?",
+      "examples": [
+        {"uz": "Sen yozasan. Sen yozasanmi?", "en": "You write. Do you write?"},
+        {"uz": "Menga u kerak. Menga u kerakmi?", "en": "I need it. Do I need it?"},
+        {"uz": "Senda sumka bormi?", "en": "Do you have a bag?"}
+      ]
+    },
+    {
+      "uz": "ertalab",
+      "en": "in the morning",
+      "examples": [
+        {"uz": "Ertalab kitob o'qiysanmi?", "en": "Do you read a book in the morning?"},
+        {"uz": "Men ertalab suv ichaman.", "en": "I drink water in the morning."},
+        {"uz": "Ular ertalab non berishadi.", "en": "They give bread in the morning."}
+      ]
+    },
+    {
+      "uz": "hozir",
+      "en": "now",
+      "examples": [
+        {"uz": "Menga u hozir kerak.", "en": "I need it now."},
+        {"uz": "Endi men suv ichaman.", "en": "Now I drink water."},
+        {"uz": "Hozirgi paytlarda ular ko'p kitob o'qishadi.", "en": "Now they read many books."}
+      ]
+    },
+    {
+      "uz": "bilan",
+      "en": "with",
+      "examples": [
+        {"uz": "Sen bilan.", "en": "With you."},
+        {"uz": "Do'stim bilan.", "en": "With my friend."},
+        {"uz": "Men qizil qalamim bilan yozaman.", "en": "I write with my red pen."}
+      ]
+    }
+  ],
+  "story": {
+    "title": "Kichik hikoya",
+    "text": "In the morning, I say 'hello' to my friends. They give me a red bag and say, 'Do you have a pen for your book?' I say, 'Yes, I have a pen and a small book.' They say, 'The bag is big, but it is good.' Now, they write words in the book. I ask, 'Do you read every day?' My dad says, 'I read many books in the morning.' They eat bread and drink water. I say, 'Thank you for the pen!'",
+    "optional": true
+  }
+}

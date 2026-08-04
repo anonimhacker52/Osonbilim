@@ -1,0 +1,100 @@
+{
+  "title": "2-dars",
+  "words": [
+    {
+      "uz": "men",
+      "en": "I",
+      "examples": [
+        {"uz": "Men dostimga yordam beraman.", "en": "I help my friend."},
+        {"uz": "Men talabaman.", "en": "I am a student."},
+        {"uz": "Men baxtliman.", "en": "I am happy."}
+      ]
+    },
+    {
+      "uz": "kerak",
+      "en": "need",
+      "examples": [
+        {"uz": "Menga kerak.", "en": "I need."},
+        {"uz": "Menga yordam kerak.", "en": "I need help."},
+        {"uz": "Menga dadam kerak.", "en": "I need my dad."}
+      ]
+    },
+    {
+      "uz": "suv",
+      "en": "water",
+      "examples": [
+        {"uz": "Bu suv.", "en": "This is water."},
+        {"uz": "Suv uchun rahmat.", "en": "Thank you for water."},
+        {"uz": "Men suv ichaman.", "en": "I drink water."}
+      ]
+    },
+    {
+      "uz": "non",
+      "en": "bread",
+      "examples": [
+        {"uz": "Bu mening nonim.", "en": "This is my bread."},
+        {"uz": "Non uchun rahmat.", "en": "Thank you for bread."},
+        {"uz": "Men non yeyman.", "en": "I eat bread."}
+      ]
+    },
+    {
+      "uz": "va",
+      "en": "and",
+      "examples": [
+        {"uz": "Non va suv.", "en": "Bread and water."},
+        {"uz": "Dadam va men.", "en": "My dad and I."},
+        {"uz": "Iltimos va rahmat.", "en": "Please and thank you."}
+      ]
+    },
+    {
+      "uz": "ichmoq",
+      "en": "drink",
+      "examples": [
+        {"uz": "Men suv ichaman.", "en": "I drink water."},
+        {"uz": "Ichishim kerak.", "en": "I need to drink."},
+        {"uz": "Dostimga yordam berishim kerak.", "en": "I need to help my friend."}
+      ]
+    },
+    {
+      "uz": "yemoq",
+      "en": "eat",
+      "examples": [
+        {"uz": "Men non yeyman.", "en": "I eat bread."},
+        {"uz": "Mening dostim va men yeymiz.", "en": "My friend and I eat."},
+        {"uz": "Men olma yeyman.", "en": "I eat an apple."}
+      ]
+    },
+    {
+      "uz": "biroz",
+      "en": "some",
+      "examples": [
+        {"uz": "Biroz suv.", "en": "Some water."},
+        {"uz": "Biroz yordam.", "en": "Some help."},
+        {"uz": "Menga biroz non kerak.", "en": "I need some bread."}
+      ]
+    },
+    {
+      "uz": "issiq",
+      "en": "hot",
+      "examples": [
+        {"uz": "Issiq non.", "en": "Hot bread."},
+        {"uz": "Men issiq suv ichaman.", "en": "I drink hot water."},
+        {"uz": "Menga issiq non kerak.", "en": "I need hot bread."}
+      ]
+    },
+    {
+      "uz": "hayr",
+      "en": "goodbye",
+      "examples": [
+        {"uz": "Hayr, dostim.", "en": "Goodbye, my friend."},
+        {"uz": "Hayr, dada.", "en": "Goodbye, dad."},
+        {"uz": "Hayr, ko'rishguncha.", "en": "Goodbye, see you."}
+      ]
+    }
+  ],
+  "story": {
+    "title": "Kichik hikoya",
+    "text": "Hello! This is my dad. I need some water and bread, please. I want to eat bread and drink water. Thank you for your help. Goodbye.",
+    "optional": true
+  }
+}

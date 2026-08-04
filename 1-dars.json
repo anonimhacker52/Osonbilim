@@ -1,0 +1,100 @@
+{
+  "title": "1-dars",
+  "words": [
+    {
+      "uz": "salom",
+      "en": "hello",
+      "examples": [
+        {"uz": "Salom!", "en": "Hello!"},
+        {"uz": "Salom, do'stim.", "en": "Hello, my friend."},
+        {"uz": "Salom, dadam.", "en": "Hello, dad."}
+      ]
+    },
+    {
+      "uz": "iltimos",
+      "en": "please",
+      "examples": [
+        {"uz": "Iltimos.", "en": "Please."},
+        {"uz": "Dada, iltimos.", "en": "Dad, please."},
+        {"uz": "Yordam bering, iltimos.", "en": "Help, please."}
+      ]
+    },
+    {
+      "uz": "rahmat",
+      "en": "thank you",
+      "examples": [
+        {"uz": "Rahmat.", "en": "Thank you."},
+        {"uz": "Rahmat, dada.", "en": "Thank you, dad."},
+        {"uz": "Rahmat, do'stim.", "en": "Thank you, my friend."}
+      ]
+    },
+    {
+      "uz": "dada",
+      "en": "dad",
+      "examples": [
+        {"uz": "Rahmat, dada.", "en": "Thank you, dad."},
+        {"uz": "Dada, iltimos.", "en": "Dad, please."},
+        {"uz": "Bu mening dadam.", "en": "This is my dad."}
+      ]
+    },
+    {
+      "uz": "do'st",
+      "en": "friend",
+      "examples": [
+        {"uz": "Salom, do'stim.", "en": "Hello, my friend."},
+        {"uz": "Bu mening do'stim.", "en": "This is my friend."},
+        {"uz": "Rahmat, do'stim.", "en": "Thank you, my friend."}
+      ]
+    },
+    {
+      "uz": "mening",
+      "en": "my",
+      "examples": [
+        {"uz": "Mening do'stim.", "en": "My friend."},
+        {"uz": "Mening dadam.", "en": "My dad."},
+        {"uz": "Rahmat, mening do'stim.", "en": "Thank you, my friend."}
+      ]
+    },
+    {
+      "uz": "bu/bunisi",
+      "en": "this is",
+      "examples": [
+        {"uz": "Bu mening do'stim.", "en": "This is my friend."},
+        {"uz": "Bu mening dadam.", "en": "This is my dad."},
+        {"uz": "Bu sening do'sting.", "en": "This is your friend."}
+      ]
+    },
+    {
+      "uz": "sizning/sening",
+      "en": "your",
+      "examples": [
+        {"uz": "Bu sening do'sting.", "en": "This is your friend."},
+        {"uz": "Bu sening dadang.", "en": "This is your dad."},
+        {"uz": "Sening yordaming.", "en": "Your help."}
+      ]
+    },
+    {
+      "uz": "uchun",
+      "en": "for",
+      "examples": [
+        {"uz": "Sening do'sting uchun.", "en": "For your friend."},
+        {"uz": "Mening dadam uchun.", "en": "For my dad."},
+        {"uz": "Bu sening do'sting uchun.", "en": "This is for your friend."}
+      ]
+    },
+    {
+      "uz": "yordam",
+      "en": "help",
+      "examples": [
+        {"uz": "Sening yordaming.", "en": "Your help."},
+        {"uz": "Yordaming uchun rahmat.", "en": "Thank you for your help."},
+        {"uz": "Yordam bering, iltimos.", "en": "Please help."}
+      ]
+    }
+  ],
+  "story": {
+    "title": "Kichik hikoya",
+    "text": "Hello, this is my friend. Hello, this is your dad. Please help my friend. Thank you for your help.",
+    "optional": true
+  }
+}

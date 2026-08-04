@@ -1,0 +1,100 @@
+{
+  "title": "9-dars",
+  "words": [
+    {
+      "uz": "sen (you are)",
+      "en": "you are",
+      "examples": [
+        {"uz": "Sen o'qituvchisan.", "en": "You are a teacher."},
+        {"uz": "Sen o'qituvchi emassan.", "en": "You are not a teacher."},
+        {"uz": "Sen o'qituvchimisan?", "en": "Are you a teacher?"}
+      ]
+    },
+    {
+      "uz": "bir/bitta",
+      "en": "one",
+      "examples": [
+        {"uz": "Mening bitta opam bor.", "en": "I have one sister."},
+        {"uz": "Bizga bitta qalam va bitta kitob kerak.", "en": "We need one pen and one book."},
+        {"uz": "Menda bitta mushuk bor.", "en": "I have one cat."}
+      ]
+    },
+    {
+      "uz": "u (erkak)",
+      "en": "he",
+      "examples": [
+        {"uz": "U mening do'stim.", "en": "He is my friend."},
+        {"uz": "U ertalab ingliz tili o'rganadi.", "en": "He learns English in the morning."},
+        {"uz": "U ishlaydi.", "en": "He works."}
+      ]
+    },
+    {
+      "uz": "sariq",
+      "en": "yellow",
+      "examples": [
+        {"uz": "Sariq sumka.", "en": "A yellow bag."},
+        {"uz": "Uning sariq mashinasi bor.", "en": "He has a yellow car."},
+        {"uz": "Nima sariq?", "en": "What is yellow?"}
+      ]
+    },
+    {
+      "uz": "tashqarida/tashqariga",
+      "en": "outside",
+      "examples": [
+        {"uz": "Tashqarida havo quyoshli.", "en": "It is sunny outside."},
+        {"uz": "Ular tushlik paytida tashqariga chiqishadi.", "en": "They go outside in the afternoon."},
+        {"uz": "U mushuk bilan tashqarida o'ynaydi.", "en": "He plays with the cat outside."}
+      ]
+    },
+    {
+      "uz": "bazan/ba'zida",
+      "en": "sometimes",
+      "examples": [
+        {"uz": "Ba'zan kitob o'qiyman.", "en": "I read a book sometimes."},
+        {"uz": "Ba'zan menga yordaming kerak.", "en": "Sometimes I need your help."},
+        {"uz": "U ba'zan non yeydi.", "en": "He sometimes eats bread."}
+      ]
+    },
+    {
+      "uz": "qolmoq",
+      "en": "stay",
+      "examples": [
+        {"uz": "Uyda qol.", "en": "Stay at home."},
+        {"uz": "Mushuk ba'zan tashqarida qoladi.", "en": "The cat sometimes stays outside."},
+        {"uz": "Men ertalab dadam bilan qolaman.", "en": "I stay with my dad in the morning."}
+      ]
+    },
+    {
+      "uz": "odamlar",
+      "en": "people",
+      "examples": [
+        {"uz": "Odamlar mushuklarni yaxshi ko'rishadi.", "en": "People love cats."},
+        {"uz": "Ko'p odamlarda mashina bor.", "en": "Many people have a car."},
+        {"uz": "Odamlar ertalab ishga borishadi.", "en": "People go to work in the morning."}
+      ]
+    },
+    {
+      "uz": "menga/meni/mendan",
+      "en": "me",
+      "examples": [
+        {"uz": "U meni sevadi.", "en": "She loves me."},
+        {"uz": "Menga ber.", "en": "Give me."},
+        {"uz": "Iltimos, men bilan qol.", "en": "Please, stay with me."}
+      ]
+    },
+    {
+      "uz": "bu yerda/mana",
+      "en": "here",
+      "examples": [
+        {"uz": "Men bu yerdaman.", "en": "I am here."},
+        {"uz": "Bu yerdamisan?", "en": "Are you here?"},
+        {"uz": "Mana sening qalaming.", "en": "Here is your pen."}
+      ]
+    }
+  ],
+  "story": {
+    "title": "Kichik hikoya",
+    "text": "It is sunny outside now, and I stay here with my sister. She says, 'You love the yellow car.' I say, 'Does he like the car too?' She says, 'Sometimes people ask, what is her name?' I say, 'Her name is Jessica.' Sometimes she stays outside, but now she is here with me. He drives the black car every day. He is happy with the car.",
+    "optional": true
+  }
+}

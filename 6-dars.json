@@ -1,0 +1,109 @@
+{
+  "title": "6-dars",
+  "words": [
+    {
+      "uz": "ga/tomon",
+      "en": "to",
+      "examples": [
+        {"uz": "Senga.", "en": "To you."},
+        {"uz": "Bu sumkani senga beraman.", "en": "I give this bag to you."},
+        {"uz": "Uni senga aytaman.", "en": "I say it to you."}
+      ]
+    },
+    {
+      "uz": "bormoq/ketmoq",
+      "en": "go",
+      "examples": [
+        {"uz": "Dadam bilan ket.", "en": "Go with my dad."},
+        {"uz": "Ertalab borasanmi?", "en": "Do you go in the morning?"},
+        {"uz": "Biz ishga boramiz.", "en": "We go to work."}
+      ]
+    },
+    {
+      "uz": "inkor gap",
+      "en": "do not",
+      "examples": [
+        {"uz": "Men ichaman. Men ichmayman.", "en": "I drink. I do not drink."},
+        {"uz": "Ular kitob o'qishadi. Ular kitob o'qishmaydi.", "en": "They read a book. They do not read a book."},
+        {"uz": "Sovuq suv ichmang.", "en": "Do not drink cold water."}
+      ]
+    },
+    {
+      "uz": "qila olmoq",
+      "en": "can",
+      "examples": [
+        {"uz": "Men o'qiyman. Men o'qiy olaman.", "en": "I read. I can read."},
+        {"uz": "Yozasanmi? Yoza olasanmi?", "en": "Do you write? Can you write?"},
+        {"uz": "Ular ichishmaydi. Ular icha olishmaydi.", "en": "They do not drink. They cannot drink."}
+      ]
+    },
+    {
+      "uz": "biz/bizlar",
+      "en": "we",
+      "examples": [
+        {"uz": "Bizga siz keraksiz.", "en": "We need you."},
+        {"uz": "Biz o'qiy olamiz, lekin biz yoza olmaymiz.", "en": "We can read, but we cannot write."},
+        {"uz": "Biz ishlaymiz.", "en": "We work."}
+      ]
+    },
+    {
+      "uz": "maylimi",
+      "en": "can we",
+      "examples": [
+        {"uz": "Biz ketsak maylimi?", "en": "Can we go?"},
+        {"uz": "Endi kitob ichiga yozsak bo'ladimi?", "en": "Can we write in the book now?"},
+        {"uz": "Bu nonni yesak maylimi?", "en": "Can we eat this bread?"}
+      ]
+    },
+    {
+      "uz": "ishlamoq/ishxona",
+      "en": "work",
+      "examples": [
+        {"uz": "Men ishlayman.", "en": "I work."},
+        {"uz": "Sen har kuni ishlaysan.", "en": "You work every day."},
+        {"uz": "Biz ishga ertalab boramiz.", "en": "We go to work in the morning."}
+      ]
+    },
+    {
+      "uz": "uy (yashash makoni)",
+      "en": "home",
+      "examples": [
+        {"uz": "Men endi uyga ketaman.", "en": "I go home now."},
+        {"uz": "Uyinga ket.", "en": "Go home."},
+        {"uz": "Biz uydamiz.", "en": "We are at home."}
+      ]
+    },
+    {
+      "uz": "da (predlog)",
+      "en": "at",
+      "examples": [
+        {"uz": "Uyda.", "en": "At home."},
+        {"uz": "Ishda.", "en": "At work."},
+        {"uz": "Men ishda ovqatlanmayman.", "en": "I do not eat at work."}
+      ]
+    },
+    {
+      "uz": "o'ynamoq",
+      "en": "play",
+      "examples": [
+        {"uz": "Ular o'ynaydilar.", "en": "They play."},
+        {"uz": "Men o'ynayman va do'stim o'ynaydi.", "en": "I play and my friend plays."},
+        {"uz": "Hozir uyda o'ynamang.", "en": "Do not play at home now."}
+      ]
+    },
+    {
+      "uz": "tushlik payti/tushlikdan keyin",
+      "en": "in the afternoon",
+      "examples": [
+        {"uz": "Men uyga tushlikdan keyin ketaman.", "en": "I go home in the afternoon."},
+        {"uz": "Do'stim kunning ikkinchi yarmida ishlaydi.", "en": "My friend works in the afternoon."},
+        {"uz": "Tushlik paytida havo issiq.", "en": "It is hot in the afternoon."}
+      ]
+    }
+  ],
+  "story": {
+    "title": "Kichik hikoya",
+    "text": "In the morning, my dad says, 'Do not go to work now.' I say, 'We can play in the afternoon.' My friend says, 'Do you have a book?' I give him a good book and say, 'Read it at home.' In the afternoon, we play with my friends, but it is cold. My dad says, 'You can go home now.' We say goodbye and go. At home, my dad reads a book and I write some words. We eat bread and drink water.",
+    "optional": true
+  }
+}

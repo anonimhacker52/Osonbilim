@@ -1,0 +1,95 @@
+{
+  "title": "8-dars",
+  "words": [
+    {
+      "uz": "does (uchinchi shaxslar uchun savol)",
+      "en": "does",
+      "examples": [
+        {"uz": "U ishga boradimi?", "en": "Does she go to work?"},
+        {"uz": "U qiladi. U qiladimi?", "en": "She does. Does she do?"},
+        {"uz": "U boradi. U boradimi?", "en": "She goes. Does she go?"}
+      ]
+    },
+    {
+      "uz": "o'rganmoq (ingliz tili)",
+      "en": "learn English",
+      "examples": [
+        {"uz": "Biz ingliz tili o'rganamiz.", "en": "We learn English."},
+        {"uz": "Men ingliz tili o'rganaman va u ham ingliz tili o'rganadi.", "en": "I learn English and she learns English too."},
+        {"uz": "U ingliz tili o'rganadimi? U ingliz tili o'rganmaydi.", "en": "Does she learn English? She does not learn English."}
+      ]
+    },
+    {
+      "uz": "nima",
+      "en": "what",
+      "examples": [
+        {"uz": "Bu nima?", "en": "What is this?"},
+        {"uz": "Nima qila olasan?", "en": "What can you do?"},
+        {"uz": "Bizda nima bor?", "en": "What do we have?"}
+      ]
+    },
+    {
+      "uz": "mashina",
+      "en": "car",
+      "examples": [
+        {"uz": "Menda mashina bor. Unda mashina bor.", "en": "I have a car. She has a car."},
+        {"uz": "Senga mashina kerakmi?", "en": "Do you need a car?"},
+        {"uz": "Mening mashinam qizil.", "en": "My car is red."}
+      ]
+    },
+    {
+      "uz": "haydamoq",
+      "en": "drive",
+      "examples": [
+        {"uz": "Men har kuni haydayman.", "en": "I drive every day."},
+        {"uz": "Mashina hayday olasanmi?", "en": "Can you drive?"},
+        {"uz": "Ishga mashina haydab borasanmi?", "en": "Do you drive to work?"}
+      ]
+    },
+    {
+      "uz": "qora",
+      "en": "black",
+      "examples": [
+        {"uz": "Qora mashina.", "en": "A black car."},
+        {"uz": "Menga qora qalam kerak.", "en": "I need a black pen."},
+        {"uz": "Opamning qora mushugi bor.", "en": "My sister has a black cat."}
+      ]
+    },
+    {
+      "uz": "quyoshli",
+      "en": "sunny",
+      "examples": [
+        {"uz": "Havo quyoshli.", "en": "It is sunny."},
+        {"uz": "Quyoshli kun.", "en": "A sunny day."},
+        {"uz": "Quyoshli kunlarda havo issiq.", "en": "It is hot on sunny days."}
+      ]
+    },
+    {
+      "uz": "ism (nom)",
+      "en": "name",
+      "examples": [
+        {"uz": "Mening ismim. Sening isming.", "en": "My name. Your name."},
+        {"uz": "Sening isming Jill. Mening ismim Jack.", "en": "Your name is Jill. My name is Jack."},
+        {"uz": "Isming nima?", "en": "What is your name?"}
+      ]
+    },
+    {
+      "uz": "uning (ayol kishiga)",
+      "en": "her",
+      "examples": [
+        {"uz": "Uning do'sti.", "en": "Her friend."},
+        {"uz": "Uning sumkasi uning mashinasida.", "en": "Her bag is in her car."},
+        {"uz": "U qizil mashinasini haydaydi.", "en": "She drives her red car."}
+      ]
+    },
+    {
+      "uz": "...dan (qayerdan)",
+      "en": "from",
+      "examples": [
+        {"uz": "Sendan.", "en": "From you."},
+        {"uz": "Nimadan?", "en": "From what?"},
+        {"uz": "Uydan ishga.", "en": "From home to work."}
+      ]
+    }
+  ]
+}

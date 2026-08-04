@@ -1,0 +1,100 @@
+{
+  "title": "7-dars",
+  "words": [
+    {
+      "uz": "sevmoq",
+      "en": "love",
+      "examples": [
+        {"uz": "Men seni sevaman.", "en": "I love you."},
+        {"uz": "Dadang seni yaxshi ko'radi.", "en": "Your dad loves you."},
+        {"uz": "Dadangni yaxshi ko'rasanmi?", "en": "Do you love your dad?"}
+      ]
+    },
+    {
+      "uz": "mushuk",
+      "en": "cat",
+      "examples": [
+        {"uz": "Menga mushuk kerak.", "en": "I need a cat."},
+        {"uz": "Ularda mushuk bor. U katta.", "en": "They have a cat. It is big."},
+        {"uz": "Men mushuk emasman.", "en": "I am not a cat."}
+      ]
+    },
+    {
+      "uz": "ham",
+      "en": "too",
+      "examples": [
+        {"uz": "Sen ham.", "en": "You too."},
+        {"uz": "Men ham mushuklarni yaxshi ko'raman.", "en": "I love cats too."},
+        {"uz": "Sen ham mushuklarni yaxshi ko'rasanmi?", "en": "Do you love cats too?"}
+      ]
+    },
+    {
+      "uz": "opa/singil",
+      "en": "sister",
+      "examples": [
+        {"uz": "Mening opam bor.", "en": "I have a sister."},
+        {"uz": "Opam hozir uyda.", "en": "My sister is at home now."},
+        {"uz": "Opam dadamni yaxshi ko'radi va men ham dadamni yaxshi ko'raman.", "en": "My sister loves my dad and I love my dad too."}
+      ]
+    },
+    {
+      "uz": "odatda",
+      "en": "usually",
+      "examples": [
+        {"uz": "Men odatda ertalab o'qiyman.", "en": "I usually read in the morning."},
+        {"uz": "Odatda biz uyda ovqatlanamiz.", "en": "We usually eat at home."},
+        {"uz": "Opam odatda mushuk bilan o'ynaydi.", "en": "My sister usually plays with the cat."}
+      ]
+    },
+    {
+      "uz": "shifokor",
+      "en": "doctor",
+      "examples": [
+        {"uz": "Opam shifokor.", "en": "My sister is a doctor."},
+        {"uz": "Senga shifokor kerakmi?", "en": "Do you need a doctor?"},
+        {"uz": "Biz shifokorni ko'ramiz.", "en": "We see the doctor."}
+      ]
+    },
+    {
+      "uz": "u (qiz bola)",
+      "en": "she",
+      "examples": [
+        {"uz": "U shifokor va u har kuni ishlaydi.", "en": "She is a doctor and she works every day."},
+        {"uz": "U mening opam va u kitoblarni sevadi.", "en": "She is my sister and she loves books."},
+        {"uz": "U baxtli.", "en": "She is happy."}
+      ]
+    },
+    {
+      "uz": "baxtli",
+      "en": "happy",
+      "examples": [
+        {"uz": "Men baxtliman.", "en": "I am happy."},
+        {"uz": "Baxtli misan?", "en": "Are you happy?"},
+        {"uz": "Mushuk baxtli. Mushuk baxtli emas.", "en": "The cat is happy. The cat is not happy."}
+      ]
+    },
+    {
+      "uz": "ustida (predlog)",
+      "en": "on",
+      "examples": [
+        {"uz": "Kitobning ustida.", "en": "On the book."},
+        {"uz": "Qalam sumkaning ustida.", "en": "The pen is on the bag."},
+        {"uz": "Mushuk stolning ustida.", "en": "The cat is on the table."}
+      ]
+    },
+    {
+      "uz": "stol",
+      "en": "table",
+      "examples": [
+        {"uz": "Bu stol kichkina.", "en": "This table is small."},
+        {"uz": "Ularga bu qizil stol kerak emas.", "en": "They do not need this red table."},
+        {"uz": "Biz stol atrofida ovqatlanamiz.", "en": "We eat at the table."}
+      ]
+    }
+  ],
+  "story": {
+    "title": "Kichik hikoya",
+    "text": "In the morning, my sister and I eat bread at the table. She says, 'I love my cat.' The cat is on the table too and plays with my small red pen. She is happy and I am happy too. Usually we eat bread and drink water in the morning. My sister says, 'The cat needs help.' I say, 'We can go to the doctor in the afternoon.' In the afternoon, we go to the doctor. The doctor says, 'The cat is not happy.' My sister is not happy now and says, 'Thank you, doctor.' At home, she usually plays with the cat, but now I play with the cat.",
+    "optional": true
+  }
+}
