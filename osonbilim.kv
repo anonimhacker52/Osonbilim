@@ -1,0 +1,267 @@
+<SplashScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: app.theme_cls.bg_normal
+        
+        Widget:
+        
+        MDLabel:
+            text: "?? Oson Bilim"
+            font_style: "H2"
+            halign: "center"
+            theme_text_color: "Primary"
+        
+        MDLabel:
+            text: "Ingliz Tili Darslari"
+            font_style: "H5"
+            halign: "center"
+            theme_text_color: "Secondary"
+        
+        Widget:
+        
+        MDProgressBar:
+            value: 50
+            size_hint_y: None
+            height: "4dp"
+        
+        Widget:
+            size_hint_y: 0.1
+
+<MenuScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        
+        Image:
+            source: "background.png"
+            allow_stretch: True
+            keep_ratio: False
+            opacity: 0.2
+        
+        MDBoxLayout:
+            orientation: "vertical"
+            
+            MDTopAppBar:
+                title: "Oson Bilim"
+                elevation: 4
+                md_bg_color: app.theme_cls.primary_color
+                right_action_items: [
+                    ["theme-light-dark", lambda x: app.toggle_theme()], 
+                    ["information", lambda x: app.root.current = 'info']
+                ]
+            
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: "10dp"
+                spacing: "10dp"
+                
+                MDCard:
+                    orientation: "horizontal"
+                    padding: "15dp"
+                    size_hint_y: None
+                    height: "60dp"
+                    radius: [15]
+                    elevation: 3
+                    md_bg_color: (1, 1, 1, 0.9) if app.theme_cls.theme_style == "Light" else (0.2, 0.2, 0.3, 0.9)
+                    
+                    MDLabel:
+                        text: f"?? Jami ball: {root.get_total_xp()} XP"
+                        font_style: "H6"
+                        halign: "center"
+                        theme_text_color: "Primary"
+                
+                MDScrollView:
+                    MDList:
+                        id: lessons_list
+                        padding: 0
+
+<LessonScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        
+        MDTopAppBar:
+            title: "Dars"
+            elevation: 4
+            left_action_items: [["arrow-left", lambda x: root.go_back()]]
+        
+        MDBoxLayout:
+            orientation: "vertical"
+            padding: "20dp"
+            spacing: "20dp"
+            
+            MDLabel:
+                id: word_title
+                text: ""
+                font_style: "H6"
+                halign: "center"
+                size_hint_y: None
+                height: "40dp"
+            
+            MDCard:
+                orientation: "vertical"
+                padding: "20dp"
+                spacing: "10dp"
+                size_hint_y: None
+                height: "200dp"
+                radius: [15]
+                elevation: 3
+                
+                MDLabel:
+                    id: word_uz
+                    text: ""
+                    font_style: "H4"
+                    halign: "center"
+                    theme_text_color: "Primary"
+                
+                MDLabel:
+                    id: word_en
+                    text: ""
+                    font_style: "H5"
+                    halign: "center"
+                    theme_text_color: "Secondary"
+                
+                MDLabel:
+                    id: example_text
+                    text: ""
+                    font_style: "Body1"
+                    halign: "center"
+                    size_hint_y: None
+                    height: "30dp"
+            
+            MDTextField:
+                id: answer_input
+                hint_text: "Inglizcha tarjimasini yozing..."
+                mode: "rectangle"
+                size_hint_y: None
+                height: "60dp"
+            
+            MDLabel:
+                id: feedback
+                text: ""
+                font_style: "Body1"
+                halign: "center"
+                size_hint_y: None
+                height: "60dp"
+            
+            MDProgressBar:
+                id: progress_bar
+                value: 0
+                size_hint_y: None
+                height: "4dp"
+            
+            MDBoxLayout:
+                orientation: "horizontal"
+                spacing: "10dp"
+                size_hint_y: None
+                height: "60dp"
+                
+                MDRaisedButton:
+                    id: check_btn
+                    text: "Tekshirish"
+                    size_hint_x: 0.5
+                    on_release: root.check_answer()
+                
+                MDRaisedButton:
+                    id: next_btn
+                    text: "Keyingi"
+                    size_hint_x: 0.5
+                    on_release: root.next_btn_pressed()
+
+<ResultScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "20dp"
+        spacing: "20dp"
+        
+        MDLabel:
+            id: result_title
+            text: ""
+            font_style: "H4"
+            halign: "center"
+            size_hint_y: None
+            height: "60dp"
+        
+        MDLabel:
+            id: result_stats
+            text: ""
+            font_style: "H6"
+            halign: "center"
+            size_hint_y: None
+            height: "80dp"
+        
+        MDBoxLayout:
+            id: story_section
+            orientation: "vertical"
+            spacing: "10dp"
+            opacity: 0
+            
+            MDLabel:
+                text: "?? Kichik hikoya"
+                font_style: "H6"
+                halign: "center"
+                size_hint_y: None
+                height: "40dp"
+            
+            MDCard:
+                padding: "15dp"
+                radius: [10]
+                size_hint_y: None
+                height: "150dp"
+                
+                MDLabel:
+                    id: story_text
+                    text: ""
+                    font_style: "Body1"
+                    halign: "center"
+        
+        MDRaisedButton:
+            text: "Hikoyani o'tkazib yuborish"
+            size_hint_y: None
+            height: "50dp"
+            on_release: root.skip_story()
+        
+        MDRaisedButton:
+            text: "Asosiy menyu"
+            size_hint_y: None
+            height: "50dp"
+            on_release: root.manager.current = 'menu'
+
+<InfoScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        
+        MDTopAppBar:
+            title: "?? Ma'lumot"
+            elevation: 4
+            left_action_items: [["arrow-left", lambda x: app.root.current = 'menu']]
+        
+        MDScrollView:
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: "20dp"
+                spacing: "20dp"
+                size_hint_y: None
+                height: self.minimum_height
+                
+                MDLabel:
+                    text: "?? Oson Bilim"
+                    font_style: "H4"
+                    halign: "center"
+                    size_hint_y: None
+                    height: "60dp"
+                
+                MDCard:
+                    padding: "20dp"
+                    radius: [15]
+                    size_hint_y: None
+                    height: "280dp"
+                    
+                    MDLabel:
+                        text: "Ushbu APK ilova YouTube platformasidagi https://youtube.com/@osonbilim kanali bilan birga qo'llanishingizni tavsiya qilamiz. Bu dastur aynan 'Oson Bilim' kursi uchun maxsus tayyorlangan.\\n\\nDasturchi bilan aloqa: t.me/Ali_alivey\\n\\nUshbu dasturni har doim yangilab boramiz va YouTube'da barcha video darsliklarni qo'shib boramiz."
+                        font_style: "Body1"
+                        halign: "center"
+                
+                MDRaisedButton:
+                    text: "?? YouTube kanalga o'tish"
+                    size_hint_y: None
+                    height: "50dp"
+                    on_release: app.open_link("https://youtube.com/@osonbilim")
