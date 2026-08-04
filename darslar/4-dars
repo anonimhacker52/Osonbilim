@@ -1,0 +1,100 @@
+{
+  "title": "4-dars",
+  "words": [
+    {
+      "uz": "katta",
+      "en": "big",
+      "examples": [
+        {"uz": "Katta kitob.", "en": "A big book."},
+        {"uz": "Men katta kitoblarni o'qiyman.", "en": "I read big books."},
+        {"uz": "U katta.", "en": "It is big."}
+      ]
+    },
+    {
+      "uz": "u (haqida ma'lumot)",
+      "en": "it is",
+      "examples": [
+        {"uz": "Mening kitobim bor va u katta.", "en": "I have a book and it is big."},
+        {"uz": "U issiq.", "en": "It is hot."},
+        {"uz": "Havo sovuq.", "en": "It is cold."}
+      ]
+    },
+    {
+      "uz": "qalam",
+      "en": "pen",
+      "examples": [
+        {"uz": "Menga qalamim kerak.", "en": "I need my pen."},
+        {"uz": "Biroz qalamlar.", "en": "Some pens."},
+        {"uz": "Senda bir kitob va ko'p qalamlar bor.", "en": "You have a book and many pens."}
+      ]
+    },
+    {
+      "uz": "qilmoq",
+      "en": "do",
+      "examples": [
+        {"uz": "Men qilaman.", "en": "I do."},
+        {"uz": "Sen qilasan.", "en": "You do."},
+        {"uz": "Sen uni qil.", "en": "You do it."}
+      ]
+    },
+    {
+      "uz": "sumka",
+      "en": "bag",
+      "examples": [
+        {"uz": "Sumka katta.", "en": "A bag is big."},
+        {"uz": "Bu yaxshi sumka.", "en": "It is a good bag."},
+        {"uz": "Bu yaxshi va katta sumka.", "en": "This is a good and big bag."}
+      ]
+    },
+    {
+      "uz": "kichik",
+      "en": "small",
+      "examples": [
+        {"uz": "Kichkina qalam.", "en": "A small pen."},
+        {"uz": "Menda kichkina sumka bor.", "en": "I have a small bag."},
+        {"uz": "Bu kichkina sumka qalamlar uchun.", "en": "This is a small bag for pens."}
+      ]
+    },
+    {
+      "uz": "ular",
+      "en": "they",
+      "examples": [
+        {"uz": "Ularning ko'p kitoblari bor.", "en": "They have many books."},
+        {"uz": "Ularga biroz suv kerak.", "en": "They need some water."},
+        {"uz": "Ular kitob o'qishadi.", "en": "They read books."}
+      ]
+    },
+    {
+      "uz": "ichida",
+      "en": "in",
+      "examples": [
+        {"uz": "Sumka ichida.", "en": "In a bag."},
+        {"uz": "Suv ichida.", "en": "In water."},
+        {"uz": "Buning ichida nonim bor.", "en": "I have my bread in it."}
+      ]
+    },
+    {
+      "uz": "yozmoq",
+      "en": "write",
+      "examples": [
+        {"uz": "Men yozaman.", "en": "I write."},
+        {"uz": "Ular yozishadi.", "en": "They write."},
+        {"uz": "Sen kitob yoz.", "en": "You write a book."}
+      ]
+    },
+    {
+      "uz": "har kuni",
+      "en": "every day",
+      "examples": [
+        {"uz": "Sen har kuni yozasan.", "en": "You write every day."},
+        {"uz": "Men har kuni o'qiyman.", "en": "I read every day."},
+        {"uz": "Men har kuni bir kitob o'qiyman.", "en": "I read a book every day."}
+      ]
+    }
+  ],
+  "story": {
+    "title": "Kichik hikoya",
+    "text": "Hello! I am your friend. I have a big bag and a small pen in it. They write every day. You have many books. I want to read a good book. It is cold, and I need some hot water, please. Thank you for your help! Goodbye.",
+    "optional": true
+  }
+}
