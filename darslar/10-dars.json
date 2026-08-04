@@ -1,0 +1,100 @@
+{
+  "title": "10-dars",
+  "words": [
+    {
+      "uz": "ko'rmoq",
+      "en": "see",
+      "examples": [
+        {"uz": "Men ko'ryapman. U ko'ryapti.", "en": "I see. He sees."},
+        {"uz": "Stol ustida bitta mushukni ko'ryapman.", "en": "I see one cat on the table."},
+        {"uz": "Nima ko'ryapsan?", "en": "What do you see?"}
+      ]
+    },
+    {
+      "uz": "uning (erkak odamga)",
+      "en": "his",
+      "examples": [
+        {"uz": "Uning kitobi. Sening kitobing.", "en": "His book. Your book."},
+        {"uz": "Uning mashinasi sariq.", "en": "His car is yellow."},
+        {"uz": "Bu uning sumkasi va bu mening sumkam.", "en": "This is his bag and this is my bag."}
+      ]
+    },
+    {
+      "uz": "uhlamoq",
+      "en": "sleep",
+      "examples": [
+        {"uz": "Men uyda uxlayman. U uyda uxlaydi.", "en": "I sleep at home. He sleeps at home."},
+        {"uz": "Bu yerda uxlamang.", "en": "Do not sleep here."},
+        {"uz": "U tashqarida uxlashni yaxshi ko'radi.", "en": "He loves to sleep outside."}
+      ]
+    },
+    {
+      "uz": "har doim",
+      "en": "always",
+      "examples": [
+        {"uz": "Men har doim uyda ovqatlanaman.", "en": "I always eat at home."},
+        {"uz": "U har doim baxtli. Men har doim baxtli emasman.", "en": "He is always happy. I am always not happy."},
+        {"uz": "Sen har doim tashqarida o'ynaysanmi?", "en": "Do you always play outside?"}
+      ]
+    },
+    {
+      "uz": "qorong'i/to'q",
+      "en": "dark",
+      "examples": [
+        {"uz": "Tashqarida qorong'i.", "en": "It is dark outside."},
+        {"uz": "Uning mashinasi to'q qizil rangda.", "en": "His car is dark red."},
+        {"uz": "Qoramtir sumka stolning ustida.", "en": "The dark bag is on the table."}
+      ]
+    },
+    {
+      "uz": "ikki/ikkita",
+      "en": "two",
+      "examples": [
+        {"uz": "Ikkita qalam. Ikkita mashina.", "en": "Two pens. Two cars."},
+        {"uz": "Menda ikkita mushuk bor, lekin unda bitta mushuk bor.", "en": "I have two cats, but he has one cat."},
+        {"uz": "Men tashqarida qorong'ida ikkita odamni ko'ryapman.", "en": "I see two people outside in the dark."}
+      ]
+    },
+    {
+      "uz": "aka/uka",
+      "en": "brother",
+      "examples": [
+        {"uz": "U har doim akasi bilan o'ynaydi.", "en": "He always plays with his brother."},
+        {"uz": "Ularning ikkita akasi bor.", "en": "They have two brothers."},
+        {"uz": "Aka-ukalarim, sizlarni yaxshi ko'raman.", "en": "I love you, my brothers."}
+      ]
+    },
+    {
+      "uz": "kech/kechga qolmoq",
+      "en": "late",
+      "examples": [
+        {"uz": "Men kechga qoldim. Sen kechga qolding.", "en": "I am late. You are late."},
+        {"uz": "Kech bo'ldi.", "en": "It is late."},
+        {"uz": "U har doim kechroq, tushlikdan keyin, tashqariga chiqadi.", "en": "He always goes outside in the late afternoon."}
+      ]
+    },
+    {
+      "uz": "piyoda yurmoq",
+      "en": "walk",
+      "examples": [
+        {"uz": "Men ishga har doim piyoda boraman.", "en": "I always walk to work."},
+        {"uz": "Qorong'ida piyoda yurmang.", "en": "Do not walk in the dark."},
+        {"uz": "Menda mashina yo'q. Uyg'a piyoda boraman.", "en": "I do not have a car. I walk home."}
+      ]
+    },
+    {
+      "uz": "rang",
+      "en": "color",
+      "examples": [
+        {"uz": "Sariq rang.", "en": "Yellow color."},
+        {"uz": "Qaysi rang?", "en": "What color?"},
+        {"uz": "Sening mashinang qaysi rangda?", "en": "What color is your car?"}
+      ]
+    }
+  ],
+  "story": {
+    "title": "Kichik hikoya",
+    "text": "It is late and it is dark, and I see two black cats outside. His yellow car is outside too. My brother says, 'Do you always walk this late?' I say, 'Sometimes, but not always.' We walk and he says, 'What color is it?' I say, 'It is dark and I cannot see.' But I see his cat. It always sleeps on the table, but today it is outside.",
+    "optional": true
+  }
+}
