@@ -1,0 +1,45 @@
+name: Build Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repositoryni yuklash
+        uses: actions/checkout@v4
+
+      - name: Python o'rnatish
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Paketlar
+        run: |
+          sudo apt update
+          sudo apt install -y git zip unzip openjdk-17-jdk
+
+      - name: Buildozer o'rnatish
+        run: |
+          pip install --upgrade pip
+          pip install buildozer cython==0.29.36
+
+      - name: Android SDK sozlash
+        run: |
+          yes | sdkmanager --licenses || true
+          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+
+      - name: APK build
+        run: |
+          buildozer android debug
+
+      - name: APK saqlash
+        uses: actions/upload-artifact@v4
+        with:
+          name: OsonBilim-APK
+          path: bin/*.apk
