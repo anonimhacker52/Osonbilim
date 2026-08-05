@@ -1,0 +1,61 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04 # 24.04 ishlamaydi, 22.04 eng barqaror
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git zip unzip openjdk-17-jdk autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+      
+      - name: Install Buildozer
+        run: |
+          pip install --upgrade pip
+          pip install buildozer==1.5.0 cython==0.29.36
+      
+      # 👇 ENG MUHIM QISM: SDK ni qo'lda o'rnatish va litsenziyani qabul qilish
+      - name: Setup Android SDK & Accept Licenses
+        run: |
+          export ANDROID_HOME=$HOME/android-sdk
+          mkdir -p $ANDROID_HOME/cmdline-tools
+          wget -q https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
+          unzip -q commandlinetools-linux-9477386_latest.zip -d $ANDROID_HOME/cmdline-tools
+          mv $ANDROID_HOME/cmdline-tools/cmdline-tools $ANDROID_HOME/cmdline-tools/latest
+          
+          # Litsenziyani avtomatik qabul qilish
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
+          
+          # Kerakli build-tools (33.0.0) ni o'rnatish (Aidl shu yerda)
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-33" "build-tools;33.0.0"
+      
+      - name: Build with Buildozer
+        run: |
+          # Buildozer'ga biz o'rnatgan SDK ni ko'rsatamiz
+          export ANDROID_HOME=$HOME/android-sdk
+          export ANDROIDSDK=$ANDROID_HOME
+          
+          # buildozer.spec da android.accept_sdk_license = True borligiga ishonch hosil qilamiz
+          echo "android.accept_sdk_license = True" >> buildozer.spec
+          
+          buildozer -v android debug
+      
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: osonbilim-apk
+          path: bin/*.apk
