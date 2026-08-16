@@ -11,10 +11,10 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # 🔄 Yangilandi: v3 dan v4 ga o'tkazildi
       
       - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5 # 🔄 Yangilandi: v4 dan v5 ga o'tkazildi
         with:
           python-version: '3.11'
       
@@ -55,7 +55,7 @@ jobs:
           buildozer -v android debug
       
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 # ✅ TUZATILDI: v3 o'rniga v4 qo'yildi
         with:
           name: osonbilim-apk
           path: bin/*.apk
