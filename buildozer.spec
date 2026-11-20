@@ -4,16 +4,21 @@ package.name = osonbilim
 package.domain = org.osonbilim
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,json
+source.exclude_dirs = .git,.github,bin,.buildozer
 version = 1.0
-requirements = python3,kivy==2.2.1,kivymd==1.1.1
+requirements = python3,kivy==2.2.1,kivymd==1.1.1,pillow
 orientation = portrait
 fullscreen = 0
-android.permissions = INTERNET
-android.arch = arm64-v8a
-android.api = 33
-android.minapi = 21
-android.ndk = 25.2.9519653
 icon.filename = icon.png
 
-# Buildozer sozlamalari
-buildozer.spec.version = 1.5.0
+android.permissions = INTERNET
+android.api = 33
+android.minapi = 21
+android.ndk = 25b
+android.ndk_api = 21
+android.archs = arm64-v8a
+android.accept_sdk_license = True
+
+[buildozer]
+log_level = 2
+warn_on_root = 1
