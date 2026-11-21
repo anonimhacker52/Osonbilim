@@ -6,7 +6,7 @@
         Widget:
         
         MDLabel:
-            text: "?? Oson Bilim"
+            text: "Oson Bilim"
             font_style: "H2"
             halign: "center"
             theme_text_color: "Primary"
@@ -46,7 +46,7 @@
                 md_bg_color: app.theme_cls.primary_color
                 right_action_items: [
                     ["theme-light-dark", lambda x: app.toggle_theme()], 
-                    ["information", lambda x: app.root.current = 'info']
+                    ["information", lambda x: app.go_to('info')]
                 ]
             
             MDBoxLayout:
@@ -64,7 +64,7 @@
                     md_bg_color: (1, 1, 1, 0.9) if app.theme_cls.theme_style == "Light" else (0.2, 0.2, 0.3, 0.9)
                     
                     MDLabel:
-                        text: f"?? Jami ball: {root.get_total_xp()} XP"
+                        text: f"Jami ball: {root.get_total_xp()} XP"
                         font_style: "H6"
                         halign: "center"
                         theme_text_color: "Primary"
@@ -195,7 +195,7 @@
             opacity: 0
             
             MDLabel:
-                text: "?? Kichik hikoya"
+                text: "Kichik hikoya"
                 font_style: "H6"
                 halign: "center"
                 size_hint_y: None
@@ -230,9 +230,9 @@
         orientation: "vertical"
         
         MDTopAppBar:
-            title: "?? Ma'lumot"
+            title: "Ma'lumot"
             elevation: 4
-            left_action_items: [["arrow-left", lambda x: app.root.current = 'menu']]
+            left_action_items: [["arrow-left", lambda x: app.go_to('menu')]]
         
         MDScrollView:
             MDBoxLayout:
@@ -243,7 +243,7 @@
                 height: self.minimum_height
                 
                 MDLabel:
-                    text: "?? Oson Bilim"
+                    text: "Oson Bilim"
                     font_style: "H4"
                     halign: "center"
                     size_hint_y: None
@@ -261,7 +261,7 @@
                         halign: "center"
                 
                 MDRaisedButton:
-                    text: "?? YouTube kanalga o'tish"
+                    text: "YouTube kanalga o'tish"
                     size_hint_y: None
                     height: "50dp"
                     on_release: app.open_link("https://youtube.com/@osonbilim")
