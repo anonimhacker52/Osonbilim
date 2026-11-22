@@ -25,7 +25,8 @@ _CONTRACTIONS = {
 def clean_text(text):
     """Taqqoslash uchun: kichik harf, tinish belgisiz, qisqartmalar yoyilgan."""
     text = (text or "").lower()
-    text = text.replace("’", "'").replace("‘", "'").replace("`", "'").replace("ʼ", "'")
+    for odd in (chr(0x2019), chr(0x2018), chr(0x02BC), "`"):   # boshqa turdagi apostroflar
+        text = text.replace(odd, "'")
     for short, full in _CONTRACTIONS.items():
         text = re.sub(r"(?<![\w'])" + re.escape(short) + r"(?![\w'])", full, text)
     text = re.sub(r"(\w)n't\b", r"\1 not", text)           # isn't, don't, doesn't ...

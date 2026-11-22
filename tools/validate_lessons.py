@@ -17,6 +17,10 @@ sys.path.insert(0, ROOT)
 from lesson_logic import clean_text, phrase_in, needs_word, _token_matches  # noqa: E402
 
 
+# Kirill harflari, qattiq bo'shliq va ko'rinmas belgilar (chr() bilan: fayl faqat ASCII)
+BAD_CHARS = re.compile("[" + chr(0x400) + "-" + chr(0x4FF) + chr(0xA0) + chr(0x200B) + chr(0xFEFF) + "]")
+
+
 def lesson_num(path):
     m = re.match(r"(\d+)", os.path.basename(path))
     return int(m.group(1)) if m else 10 ** 9
@@ -53,7 +57,7 @@ def main():
 
         # Ko'rinmas/boshqa alifbo harflari (masalan kirill harfi lotin "a" o'rniga)
         for ln, line in enumerate(text.splitlines(), 1):
-            bad = re.findall(r"[Ѐ-ӿ ​﻿]", line)
+            bad = BAD_CHARS.findall(line)
             if bad:
                 err(f"{ln}-qator: kirill yoki ko'rinmas belgi bor: {line.strip()[:70]}")
 
