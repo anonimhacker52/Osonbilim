@@ -13,6 +13,8 @@ from kivymd.uix.screen import MDScreen
 from kivymd.uix.card import MDCard
 from kivymd.uix.label import MDLabel
 
+from lesson_logic import build_steps, is_correct
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -71,8 +73,8 @@ class MenuScreen(MDScreen):
         super().__init__(**kwargs)
         self.lessons_data = []
         self.progress_data = self.load_progress()
-        self.total_xp = self.progress_data.get("total_xp", 0)
         self.load_lessons()
+        self.migrate_progress()
 
     def load_lessons(self):
         lessons_folder = os.path.join(BASE_DIR, "darslar")
@@ -81,16 +83,47 @@ class MenuScreen(MDScreen):
             for fayl in files:
                 try:
                     with open(fayl, 'r', encoding='utf-8') as f:
-                        self.lessons_data.append(json.load(f))
+                        lesson = json.load(f)
+                    # Progress dars tartib raqami emas, fayl nomi bo'yicha saqlanadi
+                    lesson['_id'] = os.path.splitext(os.path.basename(fayl))[0]
+                    self.lessons_data.append(lesson)
                 except (OSError, ValueError) as e:
                     print(f"Dars o'qilmadi ({fayl}): {e}")
+
+    def migrate_progress(self):
+        """Eski saqlashni (raqamlar) yangisiga (fayl nomi + eng yaxshi ball) o'tkazadi."""
+        p = self.progress_data
+        p.setdefault("completed_lessons", [])
+        p.setdefault("total_xp", 0)
+        p.setdefault("lesson_xp", {})
+        if "legacy_xp" not in p:
+            # Eski versiyada yig'ilgan ball yo'qolmasin
+            p["legacy_xp"] = p["total_xp"] if not p["lesson_xp"] else 0
+        fixed = []
+        for item in p["completed_lessons"]:
+            if isinstance(item, int):
+                if 1 <= item <= len(self.lessons_data):
+                    item = self.lessons_data[item - 1]['_id']
+                else:
+                    continue
+            if item not in fixed:
+                fixed.append(item)
+        p["completed_lessons"] = fixed
+        self.recalc_total()
+
+    def recalc_total(self):
+        p = self.progress_data
+        p["total_xp"] = p.get("legacy_xp", 0) + sum(p["lesson_xp"].values())
+        self.total_xp = p["total_xp"]
 
     def load_progress(self):
         path = data_file_path()
         if os.path.exists(path):
             try:
                 with open(path, 'r', encoding='utf-8') as f:
-                    return json.load(f)
+                    data = json.load(f)
+                if isinstance(data, dict):
+                    return data
             except (OSError, ValueError):
                 pass
         return {"completed_lessons": [], "total_xp": 0}
@@ -115,8 +148,7 @@ class MenuScreen(MDScreen):
         white = (1, 1, 1, 1)
 
         for idx, lesson in enumerate(self.lessons_data):
-            lesson_num = idx + 1
-            is_completed = lesson_num in self.progress_data["completed_lessons"]
+            is_completed = lesson['_id'] in self.progress_data["completed_lessons"]
 
             if is_completed:
                 bg = (0.2, 0.7, 0.3, 1)
@@ -173,169 +205,194 @@ class MenuScreen(MDScreen):
 
 
 class LessonScreen(MDScreen):
+    """Dars: so'z o'rgatiladi, keyin faqat o'tilgan so'zlardan iborat gaplar so'raladi."""
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.current_lesson_idx = 0
-        self.current_word_idx = 0
-        self.current_example_idx = 0
         self.lesson_data = None
+        self.steps = []
+        self.step_idx = 0
         self.attempts = 0
         self.correct_count = 0
         self.total_examples = 0
         self.xp_earned = 0
-        self.showing_word = True
+        self.answered = False      # shu misolga to'g'ri javob berilganmi
+        self.finished = False
+        self._pending = None       # 1.2 soniyadan keyingi avtomatik o'tish
 
+    # ---- yordamchi ----
+    def _cancel_pending(self):
+        if self._pending is not None:
+            self._pending.cancel()
+            self._pending = None
+
+    def _set_feedback(self, text, color):
+        self.ids.feedback.text = text
+        self.ids.feedback.theme_text_color = "Custom"
+        self.ids.feedback.text_color = color
+
+    # ---- darsni boshlash ----
     def load_lesson(self, idx):
+        self._cancel_pending()
         self.current_lesson_idx = idx
-        self.current_word_idx = 0
-        self.current_example_idx = 0
-        self.attempts = 0
-        self.correct_count = 0
-        self.xp_earned = 0
-        self.showing_word = True
-
         app = MDApp.get_running_app()
         self.lesson_data = app.menu_screen.lessons_data[idx]
-        self.total_examples = sum(len(w['examples']) for w in self.lesson_data['words'])
-        self.update_display()
+        self.steps = build_steps(self.lesson_data)
+        self.total_examples = sum(1 for s in self.steps if s[0] == 'example')
+        self.step_idx = 0
+        self.correct_count = 0
+        self.xp_earned = 0
+        self.finished = False
+        self.show_step()
 
-    def update_display(self):
-        if self.showing_word:
-            self.show_word()
+    def show_step(self):
+        self._cancel_pending()
+        step = self.steps[self.step_idx]
+        title = self.lesson_data['title']
+        words = self.lesson_data['words']
+        self.attempts = 0
+        self.answered = False
+        self.ids.answer_input.text = ""
+        self.ids.feedback.text = ""
+        self.ids.progress_bar.value = (self.step_idx / len(self.steps)) * 100
+
+        if step[0] == 'word':
+            word = words[step[1]]
+            self.ids.word_title.text = f"{title} - {step[1] + 1}/{len(words)} so'z"
+            self.ids.word_uz.text = word['uz']
+            self.ids.word_en.text = word['en']
+            self.ids.example_text.text = "Bu so'zni yodlab oling"
+            self.ids.answer_input.disabled = True
+            self.ids.check_btn.disabled = True
+            self.ids.next_btn.disabled = False
+            self.ids.next_btn.text = "Tayyor, davom etamiz"
         else:
-            self.show_example()
+            number = sum(1 for s in self.steps[:self.step_idx + 1] if s[0] == 'example')
+            self.ids.word_title.text = f"{title} - mashq {number}/{self.total_examples}"
+            self.ids.word_uz.text = step[1]['uz']
+            self.ids.word_en.text = ""
+            self.ids.example_text.text = "Inglizcha tarjimasini yozing:"
+            self.ids.answer_input.disabled = False
+            self.ids.check_btn.disabled = False
+            self.ids.next_btn.disabled = True      # javob bermasdan o'tib bo'lmaydi
+            self.ids.next_btn.text = "Keyingi"
 
-    def show_word(self):
-        word = self.lesson_data['words'][self.current_word_idx]
-        self.ids.word_title.text = f"{self.lesson_data['title']} - {self.current_word_idx + 1}/{len(self.lesson_data['words'])} so'z"
-        self.ids.word_uz.text = word['uz']
-        self.ids.word_en.text = word['en']
-        self.ids.example_text.text = "Bu so'zni yodlab oling"
-        self.ids.answer_input.text = ""
-        self.ids.answer_input.disabled = True
-        self.ids.check_btn.disabled = True
-        self.ids.next_btn.text = "Tayyor, boshladik!"
-        self.ids.feedback.text = ""
-        self.ids.progress_bar.value = (self.current_word_idx / len(self.lesson_data['words'])) * 100
-
-    def show_example(self):
-        word = self.lesson_data['words'][self.current_word_idx]
-        example = word['examples'][self.current_example_idx]
-        self.ids.word_title.text = f"{self.lesson_data['title']} - {word['en']} | {self.current_example_idx + 1}/{len(word['examples'])} misol"
-        self.ids.word_uz.text = example['uz']
-        self.ids.word_en.text = ""
-        self.ids.example_text.text = "Inglizcha tarjimasini yozing:"
-        self.ids.answer_input.text = ""
-        self.ids.answer_input.disabled = False
-        self.ids.check_btn.disabled = False
-        self.ids.next_btn.text = "Keyingi"
-        self.ids.feedback.text = ""
-
-        total_progress = self.current_word_idx + (self.current_example_idx / len(word['examples']))
-        self.ids.progress_bar.value = (total_progress / len(self.lesson_data['words'])) * 100
-
-    def clean_text(self, text):
-        text = text.lower()
-        text = re.sub(r'[^\w\s]', '', text)
-        text = re.sub(r'\s+', ' ', text).strip()
-        return text
-
+    # ---- javobni tekshirish ----
     def check_answer(self):
-        if self.showing_word:
-            self.showing_word = False
-            self.current_example_idx = 0
-            self.attempts = 0
-            self.update_display()
+        if self.finished or self.answered or not self.steps:
+            return
+        step = self.steps[self.step_idx]
+        if step[0] != 'example':
+            return
+        example = step[1]
+        user_answer = self.ids.answer_input.text.strip()
+        if not user_answer:
+            self._set_feedback("Avval javobni yozing", (1, 0.6, 0.2, 1))
             return
 
-        word = self.lesson_data['words'][self.current_word_idx]
-        example = word['examples'][self.current_example_idx]
-        user_answer = self.ids.answer_input.text.strip()
-
-        # Bir xil o'zbekcha gapga bir nechta to'g'ri javob bo'lishi mumkin
-        # (masalan "Help, please." va "Please help."): hammasi qabul qilinadi.
-        target_uz = self.clean_text(example['uz'])
-        accepted = {self.clean_text(example['en'])}
-        for w in self.lesson_data['words']:
-            for e in w['examples']:
-                if self.clean_text(e['uz']) == target_uz:
-                    accepted.add(self.clean_text(e['en']))
-
-        if self.clean_text(user_answer) in accepted:
+        if is_correct(self.lesson_data, example, user_answer):
+            self.answered = True
             self.correct_count += 1
             xp = 10 if self.attempts == 0 else (5 if self.attempts == 1 else 2)
             self.xp_earned += xp
-            self.ids.feedback.text = f"To'g'ri! +{xp} XP"
-            self.ids.feedback.theme_text_color = "Custom"
-            self.ids.feedback.text_color = (0.2, 0.8, 0.4, 1)
-            Clock.schedule_once(self.next_example, 1.2)
+            self._set_feedback(f"To'g'ri! +{xp} XP", (0.2, 0.8, 0.4, 1))
+            self.ids.check_btn.disabled = True
+            self.ids.next_btn.disabled = False
+            self._cancel_pending()
+            idx_now = self.step_idx
+            self._pending = Clock.schedule_once(lambda dt: self._auto_next(idx_now), 1.2)
         else:
             self.attempts += 1
             if self.attempts >= 2:
-                self.ids.feedback.text = f"To'g'ri javob:\n{example['en']}\nEndi shuni yozing:"
-                self.ids.feedback.theme_text_color = "Custom"
-                self.ids.feedback.text_color = (1, 0.2, 0.2, 1)
+                self._set_feedback(f"To'g'ri javob:\n{example['en']}\nEndi shuni yozing:", (1, 0.2, 0.2, 1))
                 self.ids.answer_input.text = ""
             else:
-                self.ids.feedback.text = "Noto'g'ri, yana urinib ko'ring!"
-                self.ids.feedback.theme_text_color = "Custom"
-                self.ids.feedback.text_color = (1, 0.6, 0.2, 1)
+                self._set_feedback("Noto'g'ri, yana urinib ko'ring!", (1, 0.6, 0.2, 1))
 
-    def next_example(self, dt=None):
-        word = self.lesson_data['words'][self.current_word_idx]
-        if self.current_example_idx < len(word['examples']) - 1:
-            self.current_example_idx += 1
-            self.attempts = 0
-            self.update_display()
+    # ---- keyingi bosqich ----
+    def _auto_next(self, step_idx):
+        """Avtomatik o'tish faqat o'sha misol hali ekranda bo'lsagina ishlaydi."""
+        if step_idx == self.step_idx:
+            self.next_step()
+
+    def next_step(self, dt=None):
+        """Bir martalik o'tish: avtomatik va tugma bosilishi to'qnashmaydi."""
+        self._cancel_pending()
+        if self.finished:
+            return
+        step = self.steps[self.step_idx]
+        if step[0] == 'example' and not self.answered:
+            return
+        if self.step_idx < len(self.steps) - 1:
+            self.step_idx += 1
+            self.show_step()
         else:
-            if self.current_word_idx < len(self.lesson_data['words']) - 1:
-                self.current_word_idx += 1
-                self.showing_word = True
-                self.update_display()
-            else:
-                self.finish_lesson()
+            self.finish_lesson()
 
     def next_btn_pressed(self):
-        if self.showing_word:
-            self.check_answer()
-        else:
-            self.next_example()
+        self.next_step()
 
     def finish_lesson(self):
+        if self.finished:
+            return
+        self.finished = True
+        self._cancel_pending()
         app = MDApp.get_running_app()
-        lesson_num = self.current_lesson_idx + 1
-        if lesson_num not in app.menu_screen.progress_data["completed_lessons"]:
-            app.menu_screen.progress_data["completed_lessons"].append(lesson_num)
-        app.menu_screen.progress_data["total_xp"] += self.xp_earned
-        app.menu_screen.save_progress()
-        app.menu_screen.total_xp = app.menu_screen.progress_data["total_xp"]
+        menu = app.menu_screen
+        lesson = self.lesson_data
+        lesson_id = lesson['_id']
+        progress = menu.progress_data
+
+        if lesson_id not in progress["completed_lessons"]:
+            progress["completed_lessons"].append(lesson_id)
+        # Ball faqat eng yaxshi natijadan oshgan qismi uchun qo'shiladi
+        best = progress["lesson_xp"].get(lesson_id, 0)
+        gained = max(0, self.xp_earned - best)
+        if gained > 0:
+            progress["lesson_xp"][lesson_id] = self.xp_earned
+        menu.recalc_total()
+        menu.save_progress()
 
         result_screen = self.manager.get_screen('result')
         result_screen.show_result(
-            lesson_num=lesson_num,
+            lesson=lesson,
             correct=self.correct_count,
             total=self.total_examples,
-            xp=self.xp_earned
+            xp=self.xp_earned,
+            gained=gained,
+            best=progress["lesson_xp"].get(lesson_id, 0),
         )
         self.manager.current = 'result'
 
+    def on_leave(self, *args):
+        self._cancel_pending()
+        try:
+            Window.release_all_keyboards()
+        except Exception:
+            pass
+
     def go_back(self):
+        self._cancel_pending()
         self.manager.current = 'menu'
 
 
 class ResultScreen(MDScreen):
-    def show_result(self, lesson_num, correct, total, xp):
-        self.ids.result_title.text = f"{lesson_num}-dars tugadi!"
-        self.ids.result_stats.text = f"To'g'ri: {correct}/{total}\nBall: +{xp} XP"
+    def show_result(self, lesson, correct, total, xp, gained, best):
+        self.ids.result_title.text = f"{lesson['title']} tugadi!"
+        if gained > 0:
+            ball = f"Ball: +{gained} XP"
+        else:
+            ball = f"Ball oshmadi (eng yaxshi natija: {best} XP)"
+        self.ids.result_stats.text = f"To'g'ri: {correct}/{total}\n{ball}"
 
-        app = MDApp.get_running_app()
-        lesson = app.menu_screen.lessons_data[lesson_num - 1]
-
-        if 'story' in lesson:
+        story = lesson.get('story')
+        if story and story.get('text'):
             self.ids.story_section.opacity = 1
-            self.ids.story_text.text = lesson['story']['text']
+            self.ids.story_text.text = story['text']
         else:
             self.ids.story_section.opacity = 0
+            self.ids.story_text.text = ""
 
     def skip_story(self):
         self.manager.current = 'menu'
