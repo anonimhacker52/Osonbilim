@@ -4,6 +4,7 @@ import glob
 import re
 from kivy.clock import Clock
 from kivy.utils import platform
+from kivy.properties import NumericProperty
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.screenmanager import ScreenManager
 from kivymd.app import MDApp
@@ -62,10 +63,14 @@ class SplashScreen(MDScreen):
 
 
 class MenuScreen(MDScreen):
+    # .kv fayl shu qiymatga bog'lanadi; o'zgarganda matn o'zi yangilanadi
+    total_xp = NumericProperty(0)
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.lessons_data = []
         self.progress_data = self.load_progress()
+        self.total_xp = self.progress_data.get("total_xp", 0)
         self.load_lessons()
 
     def load_lessons(self):
@@ -294,6 +299,7 @@ class LessonScreen(MDScreen):
             app.menu_screen.progress_data["completed_lessons"].append(lesson_num)
         app.menu_screen.progress_data["total_xp"] += self.xp_earned
         app.menu_screen.save_progress()
+        app.menu_screen.total_xp = app.menu_screen.progress_data["total_xp"]
 
         result_screen = self.manager.get_screen('result')
         result_screen.show_result(
