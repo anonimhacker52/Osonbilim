@@ -3,6 +3,7 @@ import os
 import glob
 import re
 from kivy.clock import Clock
+from kivy.core.window import Window
 from kivy.utils import platform
 from kivy.properties import NumericProperty
 from kivy.uix.behaviors import ButtonBehavior
@@ -250,9 +251,17 @@ class LessonScreen(MDScreen):
         word = self.lesson_data['words'][self.current_word_idx]
         example = word['examples'][self.current_example_idx]
         user_answer = self.ids.answer_input.text.strip()
-        correct_answer = example['en'].strip()
 
-        if self.clean_text(user_answer) == self.clean_text(correct_answer):
+        # Bir xil o'zbekcha gapga bir nechta to'g'ri javob bo'lishi mumkin
+        # (masalan "Help, please." va "Please help."): hammasi qabul qilinadi.
+        target_uz = self.clean_text(example['uz'])
+        accepted = {self.clean_text(example['en'])}
+        for w in self.lesson_data['words']:
+            for e in w['examples']:
+                if self.clean_text(e['uz']) == target_uz:
+                    accepted.add(self.clean_text(e['en']))
+
+        if self.clean_text(user_answer) in accepted:
             self.correct_count += 1
             xp = 10 if self.attempts == 0 else (5 if self.attempts == 1 else 2)
             self.xp_earned += xp
@@ -345,6 +354,10 @@ class OsonBilimApp(MDApp):
 
     def build(self):
         self.theme_cls.material_style = "M3"
+        # Klaviatura ochilganda yozish maydoni ko'rinib tursin
+        Window.softinput_mode = "below_target"
+        # Telefonning "orqaga" tugmasini ushlash (Android: 27-kod)
+        Window.bind(on_keyboard=self.on_back_key)
         sm = ScreenManager()
         sm.add_widget(SplashScreen(name='splash'))
         self.menu_screen = MenuScreen(name='menu')
@@ -353,6 +366,14 @@ class OsonBilimApp(MDApp):
         sm.add_widget(ResultScreen(name='result'))
         sm.add_widget(InfoScreen(name='info'))
         return sm
+
+    def on_back_key(self, window, key, *args):
+        """Orqaga tugmasi: ichki ekranlardan menyuga qaytadi, menyuda ilovadan chiqadi."""
+        if key == 27 and self.root is not None:
+            if self.root.current in ('lesson', 'result', 'info'):
+                self.root.current = 'menu'
+                return True
+        return False
 
     def go_to(self, screen_name):
         """Ekranni almashtirish (kv faylidagi lambda ichida tenglik yozib bo'lmaydi)."""

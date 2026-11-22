@@ -28,29 +28,27 @@
             size_hint_y: 0.1
 
 <MenuScreen>:
-    MDBoxLayout:
-        orientation: "vertical"
-        
+    MDFloatLayout:
         Image:
             source: "background.png"
             allow_stretch: True
             keep_ratio: False
             opacity: 0.2
-        
+
         MDBoxLayout:
             orientation: "vertical"
-            
+
             MDTopAppBar:
                 title: "Oson Bilim"
                 elevation: 4
                 md_bg_color: app.theme_cls.primary_color
                 right_action_items: [["theme-light-dark", lambda x: app.toggle_theme()], ["information", lambda x: app.go_to('info')]]
-            
+
             MDBoxLayout:
                 orientation: "vertical"
                 padding: "10dp"
                 spacing: "10dp"
-                
+
                 MDCard:
                     orientation: "horizontal"
                     padding: "15dp"
@@ -59,13 +57,13 @@
                     radius: [15]
                     elevation: 3
                     md_bg_color: (1, 1, 1, 0.9) if app.theme_cls.theme_style == "Light" else (0.2, 0.2, 0.3, 0.9)
-                    
+
                     MDLabel:
                         text: f"Jami ball: {root.total_xp} XP"
                         font_style: "H6"
                         halign: "center"
                         theme_text_color: "Primary"
-                
+
                 MDScrollView:
                     MDList:
                         id: lessons_list
@@ -130,6 +128,7 @@
                 mode: "rectangle"
                 size_hint_y: None
                 height: "60dp"
+                on_text_validate: root.check_answer()
             
             MDLabel:
                 id: feedback
@@ -145,6 +144,8 @@
                 size_hint_y: None
                 height: "4dp"
             
+            Widget:
+
             MDBoxLayout:
                 orientation: "horizontal"
                 spacing: "10dp"
